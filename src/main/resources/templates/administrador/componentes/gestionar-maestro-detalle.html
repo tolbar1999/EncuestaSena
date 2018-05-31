@@ -1,0 +1,317 @@
+
+<meta charset="utf-8" />
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="navMaestro" target="_self" data-toggle="tab" href="#contentMaestro" role="tab" aria-selected="true">Maestro</a>
+    <a class="nav-item nav-link" id="navDetalle" target="_self" data-toggle="tab" href="#contentDetalle" role="tab" aria-selected="false">Detalle</a>
+  </div>
+</nav>
+
+<br/>
+<div class="tab-content" id="nav-tabContent">
+	
+	<!-- Tab Maestro -->
+	<div class="tab-pane fade show active" id="contentMaestro"
+		role="tabpanel">
+		
+		<!-- Formulario registro maestro -->
+		<form id="formRegistroMaestro">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+					<label for="txtNombreMaestro">Nombre</label>
+					<input class="form-control" type="text" id="txtNombreMaestro" name="txtNombreMaestro" />
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6">
+					<label for="txtDescripcionMaestro">Descripción</label>
+					<textarea class="form-control" id="txtDescripcionMaestro" name="txtDescripcionMaestro"></textarea>
+				</div>
+			</div>
+
+			<br />
+			<button id="btnRegistrarMaestro" class="btn btn-success" type="submit">Registrar</button>
+
+			<div id="loaderRegistroMaestro" class="loader-centrar-vertical">
+	
+			</div>
+
+		</form>
+		<!-- Cierre formulario registro maestro -->
+
+		<hr />
+		<br /> <br />
+		
+
+		<!-- Tabla maestro -->
+		<div class="table-scroll clearfix">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="th-contador">#</th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th class="text-xs-center" style="min-width: 9rem;">Opciones</th>
+					</tr>
+				</thead>
+
+				<tbody id="cuerpoTablaMaestro">
+
+
+
+				</tbody>
+
+			</table>
+			<div id="loaderTablaMaestro"></div>
+			<div id="alertaTablaMaestro" class="container"></div>
+			<input id="txtIdMaestro" value="0" type="hidden" />
+		</div>
+		<!-- Cierre tabla maestro -->
+
+
+		<!-- Modal modificar maestro -->
+		<div class="modal fade" id="modalModificarMaestro" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+			data-backdrop="static">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<center>
+							<h4>Modificar</h4>
+						</center>
+					</div>
+					<div class="modal-body">
+
+						<!-- Formulario modificar maestro -->
+						<form id="formModificarMaestro">
+							<div class="row">
+								<div class="col col-sm-12 p-b-1">
+									<label for="txtNombreMaestroMod">Nombre</label> 
+									<input class="form-control" type="text" id="txtNombreMaestroMod" name="txtNombreMaestroMod" />
+								</div>
+								<div class="col col-sm-12 p-b-1">
+									<label for="txtDescripcionMaestroMod">Descripción</label>
+									<textarea class="form-control" id="txtDescripcionMaestroMod" name="txtDescripcionMaestroMod"></textarea>
+								</div>
+							</div>
+
+							<br />
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-info"
+									id="btnConfirmarModificarMaestro">Guardar cambios</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancelar</button>
+								<div id="loaderModificarMaestro" class="loader-centrar-vertical"></div>
+							</div>
+						</form>
+						<!-- Cierre formulario modificar maestro -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cierre modal modificar maestro -->
+
+
+		<!-- Modal eliminar maestro -->
+		<div class="modal fade" id="modalEliminarMaestro" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-dialog-centered modal-eliminar"
+				role="document">
+				<div class="modal-content">
+					<div class="modal-body">Estas seguro que lo deseas eliminar?</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" id="btnConfirmarEliminarMaestro">Confirmar</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cancelar</button>
+						<div id="loaderEliminarMaestro" class="loader-centrar-vertical">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cierre modal eliminar maestro -->
+
+	</div>
+	<!-- Cierre tab Maestro -->
+
+
+	<!-- Tab detalle -->
+	<div class="tab-pane fade" id="contentDetalle" role="tabpanel">
+
+		<!-- Formulario registro detalle -->
+		<form id="formRegistroDetalle">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+					<label for="txtNombreDetalle">Nombre</label> <input
+						class="form-control" type="text" id="txtNombreDetalle"
+						name="txtNombreDetalle" />
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+					<label for="selectMaestroDetalle">Maestro</label> <select
+						class="form-control" id="selectMaestroDetalle"
+						name="selectMaestroDetalle"></select>
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6">
+					<label for="txtDescripcionDetalle">Descripción</label>
+					<textarea class="form-control" id="txtDescripcionDetalle"
+						name="txtDescripcionDetalle"></textarea>
+				</div>
+			</div>
+
+			<br />
+			<button id="btnRegistrarDetalle" class="btn btn-success"
+				type="submit">Registrar</button>
+
+
+			<div id="loaderRegistroDetalle" class="loader-centrar-vertical">
+
+			</div>
+
+		</form>
+		<!-- Cierre formulario registro detalle -->
+
+		<hr />
+		<br /> <br />
+
+		<!-- Filtro detalle -->
+		<form id="formFiltroDetalle">
+			<div class="row fila-filtro">
+				<div class="col-xs-12 col-sm-1 m-b-1 text-xs-center text-sm-left">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</div>
+				<div class="col-sm-5 col-lg-4 m-b-1">
+					<label for="txtNombreDetalleFiltro">Nombre</label> <input
+						class="form-control" type="text" id="txtNombreDetalleFiltro"
+						name="txtNombreDetalleFiltro" placeholder="Detalle" />
+				</div>
+				<div class="col-sm-6 col-lg-4 m-b-1">
+					<label for="selectMaestroDetalleFiltro">Maestro</label> <select
+						class="form-control" id="selectMaestroDetalleFiltro"
+						name="selectMaestroDetalleFiltro"></select>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-lg-3 offset-sm-1 offset-lg-0">
+					<button id="btnFiltrarDetalle"
+						class="btn btn-info col-xs-5 col-sm-2 col-lg-6 m-b-1"
+						type="submit">Filtrar</button>
+					<button id="btnRefrescarFiltroDetalle"
+						class="btn btn-secondary refrescar-filtro col-xs-2 col-sm-1 col-lg-3 m-b-1"
+						type="reset">
+						<i class="fa fa-refresh" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+		<!-- Cierre filtro detalle -->
+
+		<!-- Tabla detalle -->
+		<div class="table-scroll clearfix">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="th-contador">#</th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th>Maestro</th>
+						<th class="text-xs-center" style="min-width: 9rem;">Opciones</th>
+					</tr>
+				</thead>
+
+				<tbody id="cuerpoTablaDetalle">
+
+
+
+				</tbody>
+
+			</table>
+			<div id="loaderTablaDetalle"></div>
+			<div id="alertaTablaDetalle" class="container"></div>
+			<input id="txtIdDetalle" value="0" type="hidden" />
+		</div>
+		<!-- Cierre tabla detalle -->
+
+
+		<!-- Modal modificar detalle -->
+		<div class="modal fade" id="modalModificarDetalle" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+			data-backdrop="static">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<center>
+							<h4>Modificar</h4>
+						</center>
+					</div>
+					<div class="modal-body">
+
+						<!-- Formulario modificar detalle -->
+						<form id="formModificarDetalle">
+							<div class="row">
+								<div class="col col-sm-12 p-b-1">
+									<label for="txtNombreDetalleMod">Nombre</label> <input
+										class="form-control" type="text" id="txtNombreDetalleMod"
+										name="txtNombreDetalleMod" />
+								</div>
+								<div class="col col-sm-12 p-b-1">
+									<label for="txtDescripcionDetalleMod">Descripción</label>
+									<textarea class="form-control" id="txtDescripcionDetalleMod"
+										name="txtDescripcionDetalleMod"></textarea>
+								</div>
+								<div class="col col-sm-12 p-b-1">
+									<label for="selectMaestroDetalleMod">Maestro</label> <select
+										class="form-control" id="selectMaestroDetalleMod"
+										name="selectMaestroDetalleMod"></select>
+								</div>
+							</div>
+
+							<br />
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-info"
+									id="btnConfirmarModificarDetalle">Guardar cambios</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancelar</button>
+								<div id="loaderModificarDetalle" class="loader-centrar-vertical"></div>
+							</div>
+						</form>
+						<!-- Cierre formulario modificar detalle -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cierre modal modificar detalle -->
+
+
+		<!-- Modal eliminar detalle -->
+		<div class="modal fade" id="modalEliminarDetalle" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-dialog-centered modal-eliminar"
+				role="document">
+				<div class="modal-content">
+					<div class="modal-body">Estas seguro que lo deseas eliminar?</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" id="btnConfirmarEliminarDetalle">Confirmar</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cancelar</button>
+						<div id="loaderEliminarDetalle" class="loader-centrar-vertical">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cierre modal eliminar detalle -->
+
+	</div>
+	<!-- Cierre tab detalle -->
+
+</div>
+
+<script src="js/administrador/componentes/gestionar-maestro-detalle.js"></script>
+<script type="text/javascript">
+	$("#navMaestro").click();
+</script>
+
+

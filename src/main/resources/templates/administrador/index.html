@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" ng-app="demoApp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index administrador</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/administrador/toast.css" />
+    <link rel="stylesheet" href="css/administrador/styles.css" />
+</head>
+
+<body ng-controller="mainCtrl">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"><i class="fa fa-user-circle-o"></i> Administrador</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			
+				<li class="nav-item active"><a class="nav-link" href="#">Maestro-Detalle</a></li>
+				<li class="nav-item"><a class="nav-link" href="#gestionar-ficha">Ficha</a></li>
+				<li class="nav-item"><a class="nav-link" href="#gestionar-instructor">Instructor</a></li>
+				<li class="nav-item"><a class="nav-link" href="#gestionar-pregunta">Pregunta</a></li>
+				<li class="nav-item"><a class="nav-link" href="#gestionar-aprendiz">Aprendiz</a></li>
+				<li class="nav-item"><a class="nav-link" href="#gestionar-evaluacion">Evaluacion</a></li>
+				<li class="nav-item"><a class="nav-link" href="#asignar-ficha-instructor">Asignar Ficha-Instructor</a></li>
+				
+			</ul>
+			
+			<a href="#" title="Cerrar sesion" th:href="@{/logout}" ><i class="fa fa-power-off float-right"></i></a>
+		</div>
+	</nav>
+
+
+	<main>
+		<div ng-view="ng-view" class="container">
+			
+			
+	
+		</div>
+	</main>
+
+
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/administrador/angular.min.js"></script>
+    <script src="js/administrador/angular-route.js"></script>
+    <script src="js/administrador/index.js"></script>
+    <script src="js/administrador/jquery.validate.min.js"></script>
+    <script src="js/administrador/toastr.min.js"></script>
+    <script src="js/administrador/generico.js"></script>
+
+</body>
+
+</html>

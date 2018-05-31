@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Login administrador</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/administrador/Login-Form-Clean.css" />
+</head>
+
+<body>
+	<div class="login-clean" style="height: 100vh;">
+		<form method="post" th:action="@{/login}">
+
+			<div th:if="${param.error}">
+				<div class="alert alert-danger">Usuario y/o contraseña invalida.</div>
+			</div>
+
+			<div th:if="${param.logout}">
+				<div class="alert alert-info">Has sido desconectado.</div>
+			</div>
+			
+			<h2 class="sr-only">Login Form</h2>
+			<div class="illustration">
+				<i class="icon ion-ios-locked" style="color: #fc4f59;"></i>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" name="usuario"
+					placeholder="Usuario" />
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="password" name="clave"
+					placeholder="Contraseña" />
+			</div>
+			<div class="form-group">
+				<button style="background-color: rgb(107, 116, 125); color: white;"
+					class="btn btn-secondary btn-block" type="submit">Entrar</button>
+			</div>
+			<a href="#" class="forgot">Forgot your email or password?</a>
+		</form>
+	</div>
+</body>
+
+</html>

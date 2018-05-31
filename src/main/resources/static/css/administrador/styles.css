@@ -1,0 +1,159 @@
+
+.fa.fa-power-off {
+  color:#999999;
+  margin-right:15px;
+  font-size:25px;
+}
+
+.nav-item.active{
+	
+	border: 2px gray solid;
+}
+
+
+.nav-item:hover{
+	
+	border: 2px gray solid;
+}
+
+main{
+	
+	margin-top: 20px;
+}
+
+/* Estilos jor */
+
+.loader {
+		border: 5px solid #f3f3f3;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #ff6b15;
+        border-right: 5px solid #ff6b15;
+        border-bottom: 5px solid #ff6b15;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+label.error-validate {
+	display: none;
+	width: 100%;
+	margin-top: .25rem;
+	font-size: 80%;
+	color: #dc3545;
+}
+
+.error-validate{
+	border-color: #dc3545;
+}
+
+.valido-validate {
+	border-color: #28a745;
+}
+
+/* Para que tenga scroll la tabla */
+.table-scroll{
+	border: 1px inset;
+	width: 100%; 
+	height: 498px;
+	text-align: left;
+	overflow: auto;
+}
+
+.btn.btn-success{
+	
+	background-color: #00c851;
+	color: #fff!important;
+	border-color: transparent;
+}
+
+.btn.btn-danger{
+	
+	    background-color: #ff3547!important;
+        color: #fff!important;
+}
+
+.modal-eliminar{
+	
+	max-width: 350px;
+}
+
+.loader-centrar-vertical{
+	
+	display: inline-block;
+    margin-left: 35px;
+    vertical-align: middle;	
+}
+
+.btn-info{
+	
+	background-color: #33b5e5;	
+}
+
+label.error-validate.filtro{
+	
+	display: none !important;
+}
+
+textarea{
+	height: 80px;
+	min-height: 80px;
+	max-height: 100px;
+	
+}
+
+.fa.fa-search{
+	
+	font-size: 40px; 
+	color: #5a5a5a;
+}
+
+.fila-filtro{
+	
+	align-items: flex-end;
+}
+
+.espacioModificar{
+	
+	margin-right: 5px;
+}
+
+.btn-table{
+	
+	width: 50px;
+}
+
+.fa.fa-pencil-square-o{
+	
+	color : black;
+	font-size: 20px;
+	padding: 0;
+}
+
+
+.fa.fa-trash-o{
+	color : white;
+	font-size: 20px;
+	padding: 0;
+}
+
+.textarea-table{
+	background : white; 
+	border : none; 
+	width: 250px;
+}
+
+.refrescar-filtro{
+	
+	margin-left: 10px;
+}
+
+.div-input-group{
+	
+	align-self: flex-end;
+}
