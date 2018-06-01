@@ -8,4 +8,6 @@ import com.sena.modelo.Detalle;
 @Repository
 public interface IDetalleRepository extends JpaRepository<Detalle, Integer>{
 
+	
+	
 }

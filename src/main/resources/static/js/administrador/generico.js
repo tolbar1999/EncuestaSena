@@ -86,6 +86,24 @@ function eliminar(tabla,id){
 
 
 
+
+//Cargar en un select el maestro
+function cargarMaestro(idSelect){
+	
+	consultar("maestro","listarTodos",true).done(function(data){
+		
+		$("#"+idSelect).empty();
+		$("#"+idSelect).append("<option value='0'>-- Seleccione --</option>");
+
+		data.forEach(function(item){
+			
+			$("#"+idSelect).append("<option value='"+item.id+"'>"+item.nombre+"</option>");
+		});
+	});
+	
+}
+
+
 //Limpiar todo el formulario
 function limpiarFormulario(idFormulario){
 	
@@ -112,8 +130,6 @@ function efectoProcesamiento(idBoton,idLoader,controlar){
 
 //Limpiar totalmente las cosas de la tabla
 function limpiarTabla(idCuerpoTabla,idLoaderTabla,idAlertaTabla){
-	
-	idCuerpoTabla.hide();
 	
 	idCuerpoTabla.empty();
 	idLoaderTabla.empty();
