@@ -53,6 +53,12 @@ public class DetalleServiceImpl implements IDetalleService{
 
 		repositorioDetalle.delete(id);
 	}
+	
+	@Override
+	public List<Detalle> listarTodosPorIdMaestro(int idMaestro) {
+
+		return repositorioDetalle.listarTodosPorIdMaestro(idMaestro);
+	}
 
 	@Override
 	public List<Detalle> listarTodosFiltro(String nombre, int idMaestro) {

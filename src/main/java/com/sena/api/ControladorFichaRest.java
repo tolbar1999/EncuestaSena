@@ -56,4 +56,16 @@ public class ControladorFichaRest {
 		servicioFicha.eliminar(id);
 	}	
 	
+	@RequestMapping(value = "/listarTodosFiltro", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Ficha> listarTodosFiltro(@RequestParam String numero, @RequestParam String jornada, @RequestParam int idDetalleEstado){
+				
+		return servicioFicha.listarTodosFiltro(numero,jornada,idDetalleEstado);
+	}
+	
+	@RequestMapping(value = "/existeNumero", method = RequestMethod.GET)
+	public boolean existeNumero(@RequestParam String numero) {
+		
+		return servicioFicha.existeNumero(numero);
+	}
+	
 }

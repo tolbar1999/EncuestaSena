@@ -103,6 +103,24 @@ function cargarMaestro(idSelect){
 	
 }
 
+//Cargar en un select el estado
+function cargarEstado(idSelect){
+
+	consultar("detalle","listarTodosPorIdMaestro?idMaestro=1",true).done(function(data){
+
+		$("#"+idSelect).empty();
+		$("#"+idSelect).append("<option value='0'>-- Seleccione --</option>");
+
+		data.forEach(function(item){
+
+			$("#"+idSelect).append("<option value='"+item.id+"'>"+item.nombre+"</option>");				
+		});
+
+	});
+
+}
+
+
 
 //Limpiar todo el formulario
 function limpiarFormulario(idFormulario){
