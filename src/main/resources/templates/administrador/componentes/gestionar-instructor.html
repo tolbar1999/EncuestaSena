@@ -1,1 +1,155 @@
-<h5>ESTAMOS EN EL GESTIONAR INSTRUCTORRR!!</h5>
+
+<meta charset="utf-8" />
+
+<div>
+		<!-- Formulario registro instructor -->
+		<form id="formRegistroInstructor">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-6 mb-1">
+					<label for="txtCedulaInstructor">Cedula</label> 
+					<input class="form-control" type="number" id="txtCedulaInstructor" name="txtCedulaInstructor" />
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6 mb-1">
+					<label for="txtNombreCompletoInstructor">Nombre completo</label> 
+					<input class="form-control" type="text" id="txtNombreCompletoInstructor" name="txtNombreCompletoInstructor" />
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6">
+					<label for="selectDetalleTipoInstructor">Tipo instructor</label> 
+					<select class="form-control" id="selectDetalleTipoInstructor" name="selectDetalleTipoInstructor"></select>
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-6">
+					<label for="selectDetalleEstadoInstructor">Estado</label> 
+					<select class="form-control" id="selectDetalleEstadoInstructor" name="selectDetalleEstadoInstructor"></select>
+				</div>				
+			</div>
+
+			<br />
+			<button id="btnRegistrarInstructor" class="btn btn-success"
+				type="submit">Registrar</button>
+			
+
+			<div id="loaderRegistroInstructor" class="loader-centrar-vertical">
+
+			</div>
+
+		</form>
+		<!-- Cierre formulario registro instructor -->
+
+		<hr />
+		<br /> <br />
+		
+		<!-- Filtro instructor -->
+		<form id="formFiltroInstructor">
+			<div class="row fila-filtro">
+				<div class="col-sm-1 m-b-1 text-xs-center text-sm-left">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</div>
+				<div class="col-sm-3">
+					<label for="txtCedulaInstructorFiltro">Cedula</label>
+					<input class="form-control" type="number" id="txtCedulaInstructorFiltro" name="txtCedulaInstructorFiltro" />
+				</div>
+				<div class="col-sm-5">
+					<label for="txtNombreCompletoInstructorFiltro">Nombre completo</label> 
+					<input class="form-control" type="text" id="txtNombreCompletoInstructorFiltro" name="txtNombreCompletoInstructorFiltro" />
+				</div>
+				<div class="col-sm-3">
+					<label for="selectDetalleTipoInstructorFiltro">Tipo instructor</label> 
+					<select class="form-control" id="selectDetalleTipoInstructorFiltro" name="selectDetalleTipoInstructorFiltro"></select>
+				</div>
+				<div class="col-sm-4 offset-sm-1">
+					<label for="selectDetalleEstadoInstructorFiltro">Estado</label> 
+					<select class="form-control" id="selectDetalleEstadoInstructorFiltro" name="selectDetalleEstadoInstructorFiltro"></select>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-lg-3">
+					<button id="btnFiltrarInstructor" class="btn btn-info col-xs-5 col-sm-2 col-lg-6 m-b-1" type="submit">Filtrar</button>
+					<button id="btnRefrescarFiltroInstructor" class="btn btn-secondary refrescar-filtro col-xs-2 col-sm-1 col-lg-3 m-b-1" type="reset">
+						<i class="fa fa-refresh" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+		<!-- Cierre filtro instructor -->
+
+		<br/>
+		
+		<!-- Tabla instructor -->
+		<div class="table-scroll clearfix">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="th-contador">#</th>
+						<th>Cedula</th>
+						<th>Nombre completo</th>
+						<th>Tipo instructor</th>
+						<th>Estado</th>
+						<th class="text-xs-center" style="min-width: 9rem;">Opciones</th>
+					</tr>
+				</thead>
+
+				<tbody id="cuerpoTablaInstructor">
+
+
+
+				</tbody>
+
+			</table>
+			<div id="loaderTablaInstructor"></div>
+			<div id="alertaTablaInstructor" class="container"></div>
+			<input id="txtIdInstructor" value="0" type="hidden" />
+		</div>
+		<!-- Cierre tabla instructor -->
+		<br/>
+		
+		<!-- Modal modificar instructor -->
+		<div class="modal fade" id="modalModificarInstructor" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+			data-backdrop="static">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<center>
+							<h4>Modificar</h4>
+						</center>
+					</div>
+					<div class="modal-body">
+
+						<!-- Formulario modificar instructor -->
+						<form id="formModificarInstructor">
+							<div class="row">
+								<div class="col col-sm-12 pb-1">
+									<label for="txtCedulaInstructorMod">Cedula</label> 
+									<input class="form-control" type="number" id="txtCedulaInstructorMod" name="txtCedulaInstructorMod" />
+								</div>
+								<div class="col col-sm-12 pb-1">
+									<label for="txtNombreCompletoInstructorMod">Nombre completo</label> 
+									<input class="form-control" type="text" id="txtNombreCompletoInstructorMod" name="txtNombreCompletoInstructorMod" />
+								</div>
+								<div class="col col-sm-12 pb-1">
+									<label for="selectDetalleTipoInstructorMod">Tipo instructor</label> 
+									<select class="form-control" id="selectDetalleTipoInstructorMod" name="selectDetalleTipoInstructorMod"></select>
+								</div>
+								<div class="col col-sm-12 pb-1">
+									<label for="selectDetalleEstadoInstructorMod">Estado</label>
+									<select class="form-control" id="selectDetalleEstadoInstructorMod" name="selectDetalleEstadoInstructorMod"></select>
+								</div>	
+							</div>
+
+							<br />
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-info"
+									id="btnConfirmarModificarInstructor">Guardar cambios</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								<div id="loaderModificarInstructor" class="loader-centrar-vertical"></div>
+							</div>
+						</form>
+						<!-- Cierre formulario modificar intructor -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cierre modal modificar instructor -->
+		
+</div>
+
+<script src="js/administrador/componentes/gestionar-instructor.js"></script>

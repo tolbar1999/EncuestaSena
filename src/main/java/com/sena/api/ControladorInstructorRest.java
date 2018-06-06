@@ -56,4 +56,16 @@ public class ControladorInstructorRest {
 		servicioInstructor.eliminar(id);
 	}	
 	
+	@RequestMapping(value = "/listarTodosFiltro", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Instructor> listarTodosFiltro(@RequestParam String cedula, @RequestParam String nombreCompleto, @RequestParam int idDetalleTipoInstructor, @RequestParam int idDetalleEstado){
+				
+		return servicioInstructor.listarTodosFiltro(cedula,nombreCompleto,idDetalleTipoInstructor,idDetalleEstado);
+	}
+	
+	@RequestMapping(value = "/existeCedula", method = RequestMethod.GET)
+	public boolean existeCedula(@RequestParam String cedula) {
+		 
+		return servicioInstructor.existeCedula(cedula);
+	}
+	
 }

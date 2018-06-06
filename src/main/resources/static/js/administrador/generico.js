@@ -1,4 +1,4 @@
-var host = "http://172.20.1.139:8080";
+var host = "http://10.70.197.47:8080";
 
 
 // Metodo para consultar cualquier servicio rest

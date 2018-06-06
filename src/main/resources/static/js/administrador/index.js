@@ -53,46 +53,47 @@ demoApp.config(function($routeProvider) {
 
 demoApp.controller('mainCtrl', function($scope) {
 
-
-
+	controlarActive("liMaestroDetalle");
+	
 });
 
 demoApp.controller('gestionarFichaCtrl', function($scope) {
 
-
-
+	controlarActive("liFicha");
 });
 
 demoApp.controller('gestionarInstructorCtrl', function($scope) {
 
-
-
+	controlarActive("liInstructor");
 });
 
 demoApp.controller('gestionarPreguntaCtrl', function($scope) {
 
-
-
+	controlarActive("liPregunta");
 });
 
 demoApp.controller('gestionarAprendizCtrl', function($scope) {
 
-
-
+	controlarActive("liAprendiz");
 });
 
 demoApp.controller('gestionarEvaluacionCtrl', function($scope) {
 
-
-
+	controlarActive("liEvaluacion");
 });
 
 demoApp.controller('asignarFichaInstructorCtrl', function($scope) {
-
-
-
+	
+	controlarActive("liAsignarFichaInstructor");
 });
 
+
+
+function controlarActive(idLista){
+	
+	$("li.active").removeClass("active");
+	$("#"+idLista).addClass("active");
+}
 
 
 
