@@ -1,1 +1,134 @@
-<h5>ESTAMOS EN EL GESTIONAR PREGUNTA!!</h5>
+<!-- Formulario registro pregunta -->
+<form id="formRegistroPregunta">
+	<div class="row">
+		<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+			<label for="txtNombrePregunta">Nombre</label> 
+			<textarea class="form-control" id="txtNombrePregunta" name="txtNombrePregunta"></textarea>
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+			<label for="selectDetalleTipoFormacionPregunta">Tipo formacion</label> 
+			<select class="form-control" id="selectDetalleTipoFormacionPregunta" name="selectDetalleTipoFormacionPregunta"></select>
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+			<label for="selectDetalleEstadoPregunta">Estado</label> 
+			<select class="form-control" id="selectDetalleEstadoPregunta" name="selectDetalleEstadoPregunta"></select>
+		</div>
+	</div>
+
+	<br />
+	<button id="btnRegistrarPregunta" class="btn btn-success" type="submit">Registrar</button>
+
+	
+	<div id="loaderRegistroPregunta" class="loader-centrar-vertical">
+
+	</div>
+
+</form>
+<!-- Cierre formulario registro pregunta -->
+
+<hr />
+<br /> <br />
+
+<!-- Filtro pregunta -->
+<form id="formFiltroPregunta">
+	<div class="row fila-filtro">
+		<div class="col-xs-12 col-sm-1 m-b-1 text-xs-center text-sm-left">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+		<div class="col-sm-6 col-lg-4 m-b-1">
+			<label for="selectDetalleTipoFormacionPreguntaFiltro">Tipo formacion</label> 
+			<select class="form-control" id="selectDetalleTipoFormacionPreguntaFiltro" name="selectDetalleTipoFormacionPreguntaFiltro"></select>
+		</div>
+		<div class="col-sm-6 col-lg-4 m-b-1">
+			<label for="selectDetalleEstadoPreguntaFiltro">Estado</label>
+			<select class="form-control" id="selectDetalleEstadoPreguntaFiltro" name="selectDetalleEstadoPreguntaFiltro"></select>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-lg-3 offset-sm-1 offset-lg-0">
+			<button id="btnFiltrarPregunta" class="btn btn-info col-xs-5 col-sm-2 col-lg-6 m-b-1" type="submit">Filtrar</button>
+			<button id="btnRefrescarFiltroPregunta" class="btn btn-secondary refrescar-filtro col-xs-2 col-sm-1 col-lg-3 m-b-1" type="reset">
+				<i class="fa fa-refresh" aria-hidden="true"></i>
+			</button>
+		</div>
+	</div>
+</form>
+<!-- Cierre filtro pregunta -->
+
+<br/>
+
+<!-- Tabla pregunta -->
+<div class="table-scroll clearfix">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th class="th-contador">#</th>
+				<th>Nombre</th>
+				<th>Tipo formacion</th>
+				<th>Estado</th>
+				<th class="text-xs-center" style="min-width: 9rem;">Opciones</th>
+			</tr>
+		</thead>
+
+		<tbody id="cuerpoTablaPregunta">
+
+
+
+		</tbody>
+
+	</table>
+	<div id="loaderTablaPregunta"></div>
+	<div id="alertaTablaPregunta" class="container"></div>
+	<input id="txtIdPregunta" value="0" type="hidden" />
+</div>
+<!-- Cierre tabla pregunta -->
+<br/>
+
+<!-- Modal modificar pregunta -->
+<div class="modal fade" id="modalModificarPregunta" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+	data-backdrop="static">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<center>
+					<h4>Modificar</h4>
+				</center>
+			</div>
+			<div class="modal-body">
+				
+				<!-- Formulario modificar pregunta -->
+				<form id="formModificarPregunta">
+					<div class="row">
+						<div class="col col-sm-12 p-b-1">
+							<label for="txtNombrePreguntaMod">Nombre</label>
+							<textarea class="form-control" id="txtNombrePreguntaMod" name="txtNombrePreguntaMod"></textarea>
+						</div>
+						<div class="col col-sm-12 p-b-1">
+							<label for="selectDetalleTipoFormacionPreguntaMod">Tipo formacion</label> 
+							<select class="form-control" id="selectDetalleTipoFormacionPreguntaMod" name="selectDetalleTipoFormacionPreguntaMod"></select>
+						</div>
+						<div class="col col-sm-12 p-b-1">
+							<label for="selectDetalleEstadoPreguntaMod">Estado</label>
+							<select class="form-control" id="selectDetalleEstadoPreguntaMod" name="selectDetalleEstadoPreguntaMod"></select>
+						</div>
+					</div>
+
+					<br />
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-info"
+							id="btnConfirmarModificarPregunta">Guardar cambios</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cancelar</button>
+						<div id="loaderModificarPregunta" class="loader-centrar-vertical"></div>
+					</div>
+				</form>
+				<!-- Cierre formulario modificar pregunta -->
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Cierre modal modificar pregunta -->
+
+		
+<script src="js/administrador/componentes/gestionar-pregunta.js"></script>
+		

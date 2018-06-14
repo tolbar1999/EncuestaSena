@@ -27,45 +27,68 @@ public class Ficha implements java.io.Serializable {
 	
 	@Column(name = "jornada", nullable = false, length = 10)
 	private String jornada;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "id_sede", nullable = false)
+	private Detalle detalleSede;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_tipo_formacion", nullable = false)
+	private Detalle detalleTipoFormacion;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_estado", nullable = false)
 	private Detalle detalleEstado;
 
 	
+	
+	
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	
 	public String getNumero() {
-		return this.numero;
+		return numero;
 	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	
 	public String getJornada() {
-		return this.jornada;
+		return jornada;
 	}
 
-	public void setJornada(String jornada) {
-		this.jornada = jornada;
+	public Detalle getDetalleSede() {
+		return detalleSede;
+	}
+
+	public Detalle getDetalleTipoFormacion() {
+		return detalleTipoFormacion;
 	}
 
 	public Detalle getDetalleEstado() {
 		return detalleEstado;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setJornada(String jornada) {
+		this.jornada = jornada;
+	}
+
+	public void setDetalleSede(Detalle detalleSede) {
+		this.detalleSede = detalleSede;
+	}
+
+	public void setDetalleTipoFormacion(Detalle detalleTipoFormacion) {
+		this.detalleTipoFormacion = detalleTipoFormacion;
+	}
+
 	public void setDetalleEstado(Detalle detalleEstado) {
 		this.detalleEstado = detalleEstado;
 	}
-	
 
 }

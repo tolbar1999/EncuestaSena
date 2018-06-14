@@ -5,6 +5,10 @@ listarTodosFicha();
 cargarEstado("selectDetalleEstadoFicha");
 cargarEstado("selectDetalleEstadoFichaFiltro");
 cargarEstado("selectDetalleEstadoFichaMod");
+cargarSede("selectDetalleSedeFicha");
+cargarSede("selectDetalleSedeFichaMod");
+cargarTipoFormacion("selectDetalleTipoFormacionFicha");
+cargarTipoFormacion("selectDetalleTipoFormacionFichaMod");
 
 
 validarRegistroFicha();
@@ -26,9 +30,19 @@ $("#btnRegistrarFicha").click(function(){
 
 		var numero = $("#txtNumeroFicha").val();
 		var jornada = $("#selectQuemadoJornadaFicha").val();
+		var idDetalleSede = $("#selectDetalleSedeFicha").val();
+		var idDetalleTipoFormacion = $("#selectDetalleTipoFormacionFicha").val();
 		var idDetalleEstado = $("#selectDetalleEstadoFicha").val();
 
-
+		
+		var detalleSede = {			
+				"id" : idDetalleSede			
+		}
+		
+		var detalleTipoFormacion = {			
+				"id" : idDetalleTipoFormacion			
+		}
+		
 		var detalleEstado = {			
 				"id" : idDetalleEstado			
 		}
@@ -37,6 +51,8 @@ $("#btnRegistrarFicha").click(function(){
 		var ficha = {			
 				"numero" : numero,
 				"jornada" : jornada,
+				"detalleSede" : detalleSede,
+				"detalleTipoFormacion" : detalleTipoFormacion,
 				"detalleEstado" : detalleEstado						
 		}
 
@@ -89,6 +105,8 @@ function listarTodosFichaGenerico(metodo){
 			var datoNumero = $("<td></td>").text(contador);
 			var datoNumeroFicha = $("<td></td>").text(item.numero);
 			var datoJornada = $("<td></td>").text(item.jornada);
+			var datoDetalleSede = $("<td></td>").text(item.detalleSede.nombre);
+			var datoDetalleTipoFormacion = $("<td></td>").text(item.detalleTipoFormacion.nombre);
 			var datoDetalleEstado = $("<td></td>").text(item.detalleEstado.nombre);
 
 
@@ -98,13 +116,13 @@ function listarTodosFichaGenerico(metodo){
 
 
 
-			var fila = $("<tr></tr>").append(datoNumero,datoNumeroFicha,datoJornada,datoDetalleEstado,datoOpciones);
+			var fila = $("<tr></tr>").append(datoNumero,datoNumeroFicha,datoJornada,datoDetalleSede,datoDetalleTipoFormacion,datoDetalleEstado,datoOpciones);
 
 			idCuerpoTabla.append(fila);
 
-
-			asignarEventoClickFicha(item.id,item.numero,item.jornada,item.detalleEstado.id,contador);
-
+			
+			asignarEventoClickFicha(item.id,item.numero,item.jornada,item.detalleSede.id,item.detalleTipoFormacion.id,item.detalleEstado.id,contador);
+			
 			contador++;                        	
 		})
 		
@@ -119,7 +137,7 @@ function listarTodosFichaGenerico(metodo){
 
 
 //Asignarle evento click a el modificar de la ficha
-function asignarEventoClickFicha(idFicha,numero,jornada,idDetalleEstado,contador){
+function asignarEventoClickFicha(idFicha,numero,jornada,idDetalleSede,idDetalleTipoFormacion,idDetalleEstado,contador){
 
 	$("#btnModificarFicha"+contador).click(function(){
 
@@ -128,6 +146,8 @@ function asignarEventoClickFicha(idFicha,numero,jornada,idDetalleEstado,contador
 		$("#txtIdFicha").val(idFicha);
 		$("#txtNumeroFichaMod").val(numero);
 		$("#selectQuemadoJornadaFichaMod").val(jornada);
+		$("#selectDetalleSedeFichaMod").val(idDetalleSede);
+		$("#selectDetalleTipoFormacionFichaMod").val(idDetalleTipoFormacion);
 		$("#selectDetalleEstadoFichaMod").val(idDetalleEstado);
 
 	});
@@ -151,9 +171,19 @@ function confirmarModificarFicha(){
 
 			var numero = $("#txtNumeroFichaMod").val();
 			var jornada = $("#selectQuemadoJornadaFichaMod").val();
+			var idDetalleSede = $("#selectDetalleSedeFichaMod").val();
+			var idDetalleTipoFormacion = $("#selectDetalleTipoFormacionFichaMod").val();
 			var idDetalleEstado = $("#selectDetalleEstadoFichaMod").val();
 			
 
+			var detalleSede = {			
+					"id" : idDetalleSede			
+			}
+			
+			var detalleTipoFormacion = {			
+					"id" : idDetalleTipoFormacion			
+			}
+			
 			var detalleEstado = {			
 					"id" : idDetalleEstado			
 			}
@@ -163,6 +193,8 @@ function confirmarModificarFicha(){
 					"id" : idFicha,
 					"numero" : numero,
 					"jornada" : jornada,
+					"detalleSede" : detalleSede,
+					"detalleTipoFormacion" : detalleTipoFormacion,
 					"detalleEstado" : detalleEstado
 			}
 
@@ -233,6 +265,14 @@ function validarRegistroFicha(){
 			selectQuemadoJornadaFicha : {
 				required : true
 			},
+			selectDetalleSedeFicha : {
+				required : true,
+				min : 1
+			},
+			selectDetalleTipoFormacionFicha : {
+				required : true,
+				min : 1
+			},
 			selectDetalleEstadoFicha : {
 				required : true,
 				min : 1
@@ -245,6 +285,8 @@ function validarRegistroFicha(){
 				remote : "Esta ficha ya existe"
 			},
 			selectQuemadoJornadaFicha : "Debe escoger una jornada",
+			selectDetalleSedeFicha : "Debe escoger una sede",
+			selectDetalleTipoFormacionFicha : "Debe escoger un tipo formacion",
 			selectDetalleEstadoFicha : "Debe escoger un estado"
 		},
 		normalizer : function(valor) {
@@ -268,6 +310,14 @@ function validarModificarFicha(){
 			selectQuemadoJornadaFichaMod : {
 				required : true
 			},
+			selectDetalleSedeFichaMod : {
+				required : true,
+				min : 1
+			},
+			selectDetalleTipoFormacionFichaMod : {
+				required : true,
+				min : 1
+			},
 			selectDetalleEstadoFichaMod : {
 				required : true,
 				min : 1
@@ -279,7 +329,10 @@ function validarModificarFicha(){
 				number : "Debe escribir solo numeros"
 			},
 			selectQuemadoJornadaFichaMod : "Debe escoger una jornada",
+			selectDetalleSedeFichaMod : "Debe escoger una sede",
+			selectDetalleTipoFormacionFichaMod : "Debe escoger un tipo formacion",
 			selectDetalleEstadoFichaMod : "Debe escoger un estado"
+				
 		},
 		normalizer : function(valor) {
 			return $.trim(valor);

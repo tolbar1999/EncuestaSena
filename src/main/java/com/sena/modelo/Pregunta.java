@@ -26,8 +26,13 @@ public class Pregunta implements java.io.Serializable {
 	private String nombre;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_tipo_formacion", nullable = false)
+	private Detalle detalleTipoFormacion;
+	
+	@ManyToOne
 	@JoinColumn(name = "id_estado", nullable = false)
 	private Detalle detalleEstado;
+
 	
 	
 	
@@ -35,25 +40,32 @@ public class Pregunta implements java.io.Serializable {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public Detalle getDetalleTipoFormacion() {
+		return detalleTipoFormacion;
 	}
 
 	public Detalle getDetalleEstado() {
 		return detalleEstado;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDetalleTipoFormacion(Detalle detalleTipoFormacion) {
+		this.detalleTipoFormacion = detalleTipoFormacion;
+	}
+
 	public void setDetalleEstado(Detalle detalleEstado) {
 		this.detalleEstado = detalleEstado;
 	}
-		
 
 }

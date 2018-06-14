@@ -1,4 +1,4 @@
-var host = "http://10.70.197.47:8080";
+var host = "http://172.24.1.103:8080";
 
 
 // Metodo para consultar cualquier servicio rest
@@ -107,6 +107,40 @@ function cargarMaestro(idSelect){
 function cargarEstado(idSelect){
 
 	consultar("detalle","listarTodosPorIdMaestro?idMaestro=1",true).done(function(data){
+
+		$("#"+idSelect).empty();
+		$("#"+idSelect).append("<option value='0'>-- Seleccione --</option>");
+
+		data.forEach(function(item){
+
+			$("#"+idSelect).append("<option value='"+item.id+"'>"+item.nombre+"</option>");				
+		});
+
+	});
+
+}
+
+//Cargar en un select la sede
+function cargarSede(idSelect){
+	
+	consultar("detalle","listarTodosPorIdMaestro?idMaestro=4",true).done(function(data){
+
+		$("#"+idSelect).empty();
+		$("#"+idSelect).append("<option value='0'>-- Seleccione --</option>");
+
+		data.forEach(function(item){
+
+			$("#"+idSelect).append("<option value='"+item.id+"'>"+item.nombre+"</option>");				
+		});
+
+	});
+
+}
+
+//Cargar en un select el tipo formacion
+function cargarTipoFormacion(idSelect){
+
+	consultar("detalle","listarTodosPorIdMaestro?idMaestro=5",true).done(function(data){
 
 		$("#"+idSelect).empty();
 		$("#"+idSelect).append("<option value='0'>-- Seleccione --</option>");

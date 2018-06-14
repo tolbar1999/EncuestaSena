@@ -56,4 +56,10 @@ public class ControladorPreguntaRest {
 		servicioPregunta.eliminar(id);
 	}	
 	
+	@RequestMapping(value = "/listarTodosFiltro", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Pregunta> listarTodosFiltro(@RequestParam int idDetalleTipoFormacion, @RequestParam int idDetalleEstado){
+				 
+		return servicioPregunta.listarTodosFiltro(idDetalleTipoFormacion,idDetalleEstado);
+	}
+	
 }

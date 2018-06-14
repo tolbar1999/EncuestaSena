@@ -19,6 +19,14 @@
 					</select>
 				</div>
 				<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+					<label for="selectDetalleSedeFicha">Sede</label> 
+					<select class="form-control" id="selectDetalleSedeFicha" name="selectDetalleSedeFicha"></select>
+				</div>	
+				<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
+					<label for="selectDetalleTipoFormacionFicha">Tipo formacion</label> 
+					<select class="form-control" id="selectDetalleTipoFormacionFicha" name="selectDetalleTipoFormacionFicha"></select>
+				</div>	
+				<div class="col-xs-12 col-md-6 col-lg-6 m-b-1">
 					<label for="selectDetalleEstadoFicha">Estado</label> 
 					<select class="form-control" id="selectDetalleEstadoFicha" name="selectDetalleEstadoFicha"></select>
 				</div>				
@@ -28,7 +36,7 @@
 			<button id="btnRegistrarFicha" class="btn btn-success"
 				type="submit">Registrar</button>
 			
-
+			
 			<div id="loaderRegistroFicha" class="loader-centrar-vertical">
 
 			</div>
@@ -82,6 +90,8 @@
 						<th class="th-contador">#</th>
 						<th>Ficha</th>
 						<th>Jornada</th>
+						<th>Sede</th>
+						<th>Tipo formacion</th>
 						<th>Estado</th>
 						<th class="text-xs-center" style="min-width: 9rem;">Opciones</th>
 					</tr>
@@ -129,6 +139,14 @@
 										<option value="TARDE">TARDE</option>
 										<option value="NOCHE">NOCHE</option>
 									</select>
+								</div>
+								<div class="col col-sm-12 pb-1">
+									<label for="selectDetalleSedeFichaMod">Sede</label> 
+									<select class="form-control" id="selectDetalleSedeFichaMod" name="selectDetalleSedeFichaMod"></select>
+								</div>
+								<div class="col col-sm-12 pb-1">
+									<label for="selectDetalleTipoFormacionFichaMod">Tipo formacion</label> 
+									<select class="form-control" id="selectDetalleTipoFormacionFichaMod" name="selectDetalleTipoFormacionFichaMod"></select>
 								</div>
 								<div class="col col-sm-12 pb-1">
 									<label for="selectDetalleEstadoFichaMod">Estado</label> 
