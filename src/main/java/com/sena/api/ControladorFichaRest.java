@@ -3,6 +3,8 @@ package com.sena.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +29,7 @@ public class ControladorFichaRest {
 				
 		return servicioFicha.listarTodos();		
 	}
-	
+	 
 	
 	@RequestMapping(value = "/listarPorId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Ficha listarPorId(@RequestParam int id) {
@@ -66,6 +68,24 @@ public class ControladorFichaRest {
 	public boolean existeNumero(@RequestParam String numero) {
 		
 		return servicioFicha.existeNumero(numero);
+	}
+	
+	@RequestMapping(value = "/autoCompletarNumeroFicha", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Page<String[]> autoCompletarNumeroFicha(@RequestParam String numero, Pageable pageable){
+				
+		return servicioFicha.autoCompletarNumeroFicha(numero,pageable);
+	}
+	
+	@RequestMapping(value = "/buscarPorNumeroFicha", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Integer buscarPorNumeroFicha(@RequestParam String numero) {
+		
+		return servicioFicha.buscarPorNumeroFicha(numero);
+	}
+	
+	@RequestMapping(value = "/existeNumeroInstructorFicha", method = RequestMethod.GET)
+	public boolean existeNumeroInstructorFicha(@RequestParam String numero) {
+		 
+		return servicioFicha.existeNumeroInstructorFicha(numero);
 	}
 	
 }

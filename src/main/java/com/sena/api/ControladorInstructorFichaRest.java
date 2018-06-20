@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sena.modelo.InstructorFicha;
+import com.sena.modelo.InstructorFichaMod;
 import com.sena.service.IInstructorFichaService;
 
 @RestController
@@ -55,5 +56,24 @@ public class ControladorInstructorFichaRest {
 		
 		servicioInstructorFicha.eliminar(id);
 	}	
+	
+	
+	@RequestMapping(value = "/insertarDevolver", method = RequestMethod.POST)
+	public boolean insertarDevolver(@RequestBody InstructorFicha instructorFicha) {
+		 
+		return servicioInstructorFicha.insertarDevolver(instructorFicha);
+	}
+	
+	@RequestMapping(value = "/actualizarCustom", method = RequestMethod.PUT)
+	public void actualizarCustom(@RequestBody InstructorFichaMod instructorFichaMod) {
+		
+		servicioInstructorFicha.actualizarCustom(instructorFichaMod);
+	}
+	
+	@RequestMapping(value = "/listarTodosFiltro", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<InstructorFicha> listarTodosFiltro(@RequestParam String numeroFicha, @RequestParam String nombreInstructor){
+				
+		return servicioInstructorFicha.listarTodosFiltro(numeroFicha,nombreInstructor); 
+	}
 	
 }

@@ -57,4 +57,17 @@ public class ControladorAprendizRest {
 		servicioAprendiz.eliminar(id);
 	}
 	
+	@RequestMapping(value = "/existeIdentificacion", method = RequestMethod.GET)
+	public boolean existeIdentificacion(@RequestParam String identificacion) {
+		
+		return servicioAprendiz.existeIdentificacion(identificacion);
+	}
+	
+	@RequestMapping(value = "/listarTodosFiltro", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Aprendiz> listarTodosFiltro(@RequestParam String identificacion, @RequestParam String nombreCompleto, @RequestParam int idFicha, @RequestParam int idDetalleEstado){
+				
+		return servicioAprendiz.listarTodosFiltro(identificacion,nombreCompleto,idFicha,idDetalleEstado);
+	}
+	
+	
 }

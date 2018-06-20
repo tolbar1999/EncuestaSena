@@ -1,1 +1,155 @@
-<h5>ESTAMOS EN EL GESTIONAR APRENDIZZ!!</h5>
+
+<meta charset="utf-8" />
+
+<div>
+	<!-- Formulario registro aprendiz -->
+	<form id="formRegistroAprendiz">
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-6 mb-1">
+				<label for="txtIdentificacionAprendiz">Identificacion</label> 
+				<input class="form-control" type="number" id="txtIdentificacionAprendiz" name="txtIdentificacionAprendiz" />
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-6 mb-1">
+				<label for="txtNombreCompletoAprendiz">Nombre completo</label> 
+				<input class="form-control" type="text" id="txtNombreCompletoAprendiz" name="txtNombreCompletoAprendiz" />
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<label for="selectFichaAprendiz">Ficha</label> 
+				<select class="form-control" id="selectFichaAprendiz" name="selectFichaAprendiz"></select>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<label for="selectDetalleEstadoAprendiz">Estado</label> 
+				<select class="form-control" id="selectDetalleEstadoAprendiz" name="selectDetalleEstadoAprendiz"></select>
+			</div>				
+		</div>
+
+		<br />
+		<button id="btnRegistrarAprendiz" class="btn btn-success"
+			type="submit">Registrar</button>
+		
+
+		<div id="loaderRegistroAprendiz" class="loader-centrar-vertical">
+
+		</div>
+
+	</form>
+	<!-- Cierre formulario registro aprendiz -->
+
+	<hr />
+	<br /> <br />
+	
+	<!-- Filtro aprendiz -->
+	<form id="formFiltroAprendiz">
+		<div class="row fila-filtro">
+			<div class="col-sm-1 m-b-1 text-xs-center text-sm-left">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</div>
+			<div class="col-sm-3">
+				<label for="txtIdentificacionAprendizFiltro">Identificacion</label> 
+				<input class="form-control" type="number" id="txtIdentificacionAprendizFiltro" name="txtIdentificacionAprendizFiltro" />
+			</div>
+			<div class="col-sm-5">
+				<label for="txtNombreCompletoAprendizFiltro">Nombre completo</label> 
+				<input class="form-control" type="text" id="txtNombreCompletoAprendizFiltro" name="txtNombreCompletoAprendizFiltro" />
+			</div>
+			<div class="col-sm-3">
+				<label for="selectFichaAprendizFiltro">Ficha</label> 
+				<select class="form-control" id="selectFichaAprendizFiltro" name="selectFichaAprendizFiltro"></select>
+			</div>
+			<div class="col-sm-4 offset-sm-1">
+				<label for="selectDetalleEstadoAprendizFiltro">Estado</label> 
+				<select class="form-control" id="selectDetalleEstadoAprendizFiltro" name="selectDetalleEstadoAprendizFiltro"></select>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-lg-3">
+				<button id="btnFiltrarAprendiz" class="btn btn-info col-xs-5 col-sm-2 col-lg-6 m-b-1" type="submit">Filtrar</button>
+				<button id="btnRefrescarFiltroAprendiz" class="btn btn-secondary refrescar-filtro col-xs-2 col-sm-1 col-lg-3 m-b-1" type="reset">
+					<i class="fa fa-refresh" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+	</form>
+	<!-- Cierre filtro aprendiz -->
+
+	<br/>
+	
+	<!-- Tabla aprendiz -->
+	<div class="table-scroll clearfix">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="th-contador">#</th>
+					<th>Identificacion</th>
+					<th>Nombre completo</th>
+					<th>Ficha</th>
+					<th>Estado</th>
+					<th class="text-xs-center" style="min-width: 9rem;">Opciones</th>
+				</tr>
+			</thead>
+
+			<tbody id="cuerpoTablaAprendiz">
+
+
+
+			</tbody>
+
+		</table>
+		<div id="loaderTablaAprendiz"></div>
+		<div id="alertaTablaAprendiz" class="container"></div>
+		<input id="txtIdAprendiz" value="0" type="hidden" />
+	</div>
+	<!-- Cierre tabla aprendiz -->
+	<br/>
+	
+	<!-- Modal modificar aprendiz -->
+	<div class="modal fade" id="modalModificarAprendiz" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+		data-backdrop="static">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<center>
+						<h4>Modificar</h4>
+					</center>
+				</div>
+				<div class="modal-body">
+
+					<!-- Formulario modificar aprendiz -->
+					<form id="formModificarAprendiz">
+						<div class="row">
+							<div class="col col-sm-12 pb-1">
+								<label for="txtIdentificacionAprendizMod">Identificacion</label> 
+								<input class="form-control" type="number" id="txtIdentificacionAprendizMod" name="txtIdentificacionAprendizMod" />
+							</div>
+							<div class="col col-sm-12 pb-1">
+								<label for="txtNombreCompletoAprendizMod">Nombre completo</label> 
+								<input class="form-control" type="text" id="txtNombreCompletoAprendizMod" name="txtNombreCompletoAprendizMod" />
+							</div>
+							<div class="col col-sm-12 pb-1">
+								<label for="selectFichaAprendizMod">Ficha</label> 
+								<select class="form-control" id="selectFichaAprendizMod" name="selectFichaAprendizMod"></select>
+							</div>
+							<div class="col col-sm-12 pb-1">
+								<label for="selectDetalleEstadoAprendizMod">Estado</label> 
+								<select class="form-control" id="selectDetalleEstadoAprendizMod" name="selectDetalleEstadoAprendizMod"></select>
+							</div>	
+						</div>
+
+						<br />
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-info"
+								id="btnConfirmarModificarAprendiz">Guardar cambios</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<div id="loaderModificarAprendiz" class="loader-centrar-vertical"></div>
+						</div>
+					</form>
+					<!-- Cierre formulario modificar aprendiz -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Cierre modal modificar aprendiz -->
+		
+</div>
+
+<script src="js/administrador/componentes/gestionar-aprendiz.js"></script>

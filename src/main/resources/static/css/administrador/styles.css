@@ -157,3 +157,7 @@ textarea{
 	
 	align-self: flex-end;
 }
+
+.ui-menu{
+	z-index: 1050;
+}

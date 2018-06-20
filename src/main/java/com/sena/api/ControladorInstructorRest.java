@@ -3,6 +3,8 @@ package com.sena.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,5 +69,23 @@ public class ControladorInstructorRest {
 		 
 		return servicioInstructor.existeCedula(cedula);
 	}
+	
+	@RequestMapping(value = "/autoCompletarNombreCompleto", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Page<String[]> autoCompletarNombreCompleto(@RequestParam String nombreCompleto, Pageable pageable){
+				
+		return servicioInstructor.autoCompletarNombreCompleto(nombreCompleto,pageable);
+	}
+	
+	@RequestMapping(value = "/buscarPorNombreCompleto", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Integer buscarPorNombreCompleto(@RequestParam String nombreCompleto) {
+		
+		return servicioInstructor.buscarPorNombreCompleto(nombreCompleto);
+	}
+	
+	@RequestMapping(value = "/existeNombreCompleto", method = RequestMethod.GET)
+	public boolean existeNombreCompleto(@RequestParam String nombreCompleto) {
+		 
+		return servicioInstructor.existeNombreCompleto(nombreCompleto);
+	} 
 	
 }

@@ -7,6 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.sena.modelo.Instructor;
@@ -142,6 +145,38 @@ public class InstructorServiceImpl implements IInstructorService{
 		if(repositorioInstructor.existeCedula(cedula) != null) {
 			
 			devolver = false;
+		}
+		
+		return devolver;
+	}
+
+	@Override
+	public Page<String[]> autoCompletarNombreCompleto(String nombreCompleto, Pageable pageable) {
+		
+		return repositorioInstructor.autoCompletarNombreCompleto(nombreCompleto,devolverPageable());
+	}
+
+	@Override
+	public Integer buscarPorNombreCompleto(String nombreCompleto) {
+
+		return repositorioInstructor.buscarPorNombreCompleto(nombreCompleto);
+	}
+	
+	public Pageable devolverPageable() {
+		
+		Pageable pageable = new PageRequest(0, 5);
+		
+		return pageable;		
+	}
+
+	@Override
+	public boolean existeNombreCompleto(String nombreCompleto) {
+		
+		boolean devolver = false;
+		
+		if(repositorioInstructor.existeNombreCompleto(nombreCompleto) != null) {
+			
+			devolver = true;
 		}
 		
 		return devolver;

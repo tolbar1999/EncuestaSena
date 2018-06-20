@@ -7,6 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.sena.modelo.Ficha;
@@ -130,5 +133,38 @@ public class FichaServiceImpl implements IFichaService{
 		
 		return devolver;
 	}
+	
+	@Override
+	public Page<String[]> autoCompletarNumeroFicha(String numero, Pageable pageable) {
 
+		return repositorioFicha.autoCompletarNumeroFicha(numero,devolverPageable());
+	}
+
+	@Override
+	public Integer buscarPorNumeroFicha(String numero) {
+
+		return repositorioFicha.buscarPorNumeroFicha(numero);
+	}
+	
+	public Pageable devolverPageable() {
+		
+		Pageable pageable = new PageRequest(0, 5);
+		
+		return pageable;		
+	}
+
+	@Override
+	public boolean existeNumeroInstructorFicha(String numero) {
+		 
+		boolean devolver = false;
+		
+		if(repositorioFicha.existeNumero(numero) != null) {
+			
+			devolver = true;
+		}
+		
+		return devolver;
+	}
+	
+	
 }

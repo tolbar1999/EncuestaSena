@@ -29,7 +29,7 @@ function consultar(tabla,metodo,json){
 
 
 // Metodo para insertar o actualizar
-function guardar(tabla,objeto,httpMetodo){
+function guardar(tabla,objeto,httpMetodo,devolver){
 	
 	var metodo = "";
 	
@@ -41,6 +41,11 @@ function guardar(tabla,objeto,httpMetodo){
 	if (httpMetodo == "PUT"){
 				
 		metodo = "actualizar";
+	}
+	
+	if (devolver){
+		
+		metodo = "insertarDevolver";
 	}
 
 	return $.ajax({
@@ -81,6 +86,33 @@ function eliminar(tabla,id){
 		console.log("La solicitud a fallado: " + textStatus);
 	});
 		
+}
+
+//Metodo para modificar el instructor-ficha
+function modificarInstructorFicha(objeto){
+
+	return $.ajax({
+		 
+		type : "PUT",
+			 
+		data : JSON.stringify(objeto),
+
+		url : host+"/instructorFicha/actualizarCustom",
+			
+		async : true,
+		
+		beforeSend: function(xhr){
+				
+			xhr.setRequestHeader("Accept", "application/json");
+			xhr.setRequestHeader("Content-Type","application/json");			
+		},
+		error: function(XMLHttpRequest,textStatus, errorThrown){
+				
+			console.log("Request:"+ XMLHttpRequest.toString()+ "estatus"+ textStatus + "error"+ errorThrown);
+		}
+				
+	});
+	
 }
 
 
@@ -151,10 +183,34 @@ function cargarTipoFormacion(idSelect){
 		});
 
 	});
+}
 
+//Cargar en un select la ficha
+function cargarFicha(idSelect){
+	
+	consultar("ficha","listarTodos",true).done(function(data){
+		
+		$("#"+idSelect).empty();
+		$("#"+idSelect).append("<option value='0'>-- Seleccione --</option>");
+		
+		data.forEach(function(item){
+			
+			$("#"+idSelect).append("<option value='"+item.id+"'>"+item.numero+"</option>");				
+		});
+
+	});
 }
 
 
+
+
+
+function autocompletar(data, idInput) {
+	
+	$("#"+idInput).autocomplete({
+		source: data
+	});
+}
 
 //Limpiar todo el formulario
 function limpiarFormulario(idFormulario){
@@ -259,6 +315,11 @@ function tostadaEliminar(){
 function tostadaErrorEliminar(){
 	
 	toastr["error"]("No se pudo eliminar, intentelo nuevamente");
+}
+
+function tostadaErrorCustom(mensaje){
+	
+	toastr["error"](mensaje);
 }
 
 
