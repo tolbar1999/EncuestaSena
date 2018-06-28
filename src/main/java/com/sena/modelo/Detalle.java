@@ -18,6 +18,11 @@ public class Detalle implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	public static final int idDetalleEstadoActivo = 1;
+
+	public static final int idDetalleEstadoInactivo = 2;
+	
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	private Integer id;

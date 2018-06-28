@@ -12,6 +12,7 @@ import com.sena.modelo.Ficha;
 @Repository
 public interface IFichaRepository extends JpaRepository<Ficha, Integer>{
 
+	
 	@Query("select f.id from Ficha f where f.numero = :numero")
 	public Integer existeNumero(@Param("numero") String numero);
 	

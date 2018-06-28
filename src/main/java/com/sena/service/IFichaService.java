@@ -18,4 +18,5 @@ public interface IFichaService extends IService<Ficha>{
 	public Integer buscarPorNumeroFicha(String numero);
 	
 	public boolean existeNumeroInstructorFicha(String numero);
+	
 }

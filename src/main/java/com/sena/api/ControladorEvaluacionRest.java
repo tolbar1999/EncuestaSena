@@ -56,4 +56,12 @@ public class ControladorEvaluacionRest {
 		servicioEvaluacion.eliminar(id);
 	}	
 	
+	@RequestMapping(value = "/preInsertar", method = RequestMethod.GET) 
+	public void preInsertar(@RequestParam int idDetallePeriodo, @RequestParam int idDetalleTipoFormacion) {
+		
+		servicioEvaluacion.preInsertar(idDetallePeriodo,idDetalleTipoFormacion);
+	}
+	
+	
+	
 }

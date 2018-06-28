@@ -12,5 +12,4 @@ public interface IAprendizRepository extends JpaRepository<Aprendiz, Integer>{
 
 	@Query("select a.id from Aprendiz a where a.identificacion = :identificacion")
 	public Integer existeIdentificacion(@Param("identificacion") String identificacion); 
-	
 }

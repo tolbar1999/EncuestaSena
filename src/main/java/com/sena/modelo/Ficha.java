@@ -18,6 +18,7 @@ public class Ficha implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	private Integer id;
@@ -90,5 +91,5 @@ public class Ficha implements java.io.Serializable {
 	public void setDetalleEstado(Detalle detalleEstado) {
 		this.detalleEstado = detalleEstado;
 	}
-
+	
 }
