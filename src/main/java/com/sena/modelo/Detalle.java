@@ -22,6 +22,8 @@ public class Detalle implements java.io.Serializable {
 
 	public static final int idDetalleEstadoInactivo = 2;
 	
+	public static final int idDetalleEstadoSinResponder = 4;
+	
 	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)

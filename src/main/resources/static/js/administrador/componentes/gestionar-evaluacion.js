@@ -1,7 +1,9 @@
 
+listarTodosEvaluacion();
+
 cargarPeriodo("selectDetallePeriodoEvaluacion");
 cargarTipoFormacion("selectDetalleTipoFormacionEvaluacion");
-
+ 
 validarRegistroEvaluacion();
 
 
@@ -9,7 +11,7 @@ validarRegistroEvaluacion();
 $("#btnRegistrarEvaluacion").click(function(){
 
 	if($("#formRegistroEvaluacion").valid()){
-
+		
 		var idBoton = $("#btnRegistrarEvaluacion");
 		var idLoader = $("#loaderRegistroEvaluacion");
 
@@ -22,17 +24,97 @@ $("#btnRegistrarEvaluacion").click(function(){
 
 		preInsertar(idDetallePeriodo,idDetalleTipoFormacion).done(function(){
 			
+			listarTodosEvaluacion();
+			limpiarFormulario("formRegistroEvaluacion");
 			efectoProcesamiento(idBoton,idLoader,false);
-			alert("bien");
+			tostadaRegistro();
 
 		}).fail(function(){
 			
-			efectoProcesamiento(idBoton,idLoader,false);
-			alert("mal");
+			efectoProcesamiento(idBoton,idLoader,false);	
+			tostadaError();
 		})
 	}
 		
 });
+
+
+//Listar todos los datos de la evaluacion
+function listarTodosEvaluacion(){
+	
+	listarTodosEvaluacionGenerico("listarTodos");
+}
+
+
+//Listar todos los datos de la evaluacion generico
+function listarTodosEvaluacionGenerico(metodo){
+
+	var idCuerpoTabla = $("#cuerpoTablaEvaluacion");
+	var idLoaderTabla = $("#loaderTablaEvaluacion");	
+	var idAlertaTabla = $("#alertaTablaEvaluacion");
+
+	limpiarTabla(idCuerpoTabla,idLoaderTabla,idAlertaTabla);
+
+	loaderTabla(idLoaderTabla,true);
+
+
+	consultar("evaluacion",metodo,true).done(function(data){
+		
+		var cantidadDatos = data.length;
+		var contador = 1;
+
+		data.forEach(function(item){
+
+			var datoNumero = $("<td></td>").text(contador);
+			var datoAprendiz = $("<td></td>").text(item.aprendiz.nombreCompleto);
+			var datoInstructor = $("<td></td>").text(item.instructor.nombreCompleto);
+			var datoPregunta = $("<td></td>").text(item.pregunta.nombre);
+			var datoPeriodo = $("<td></td>").text(item.detallePeriodo.nombre);
+			var datoEstado = $("<td></td>").text(item.detalleEstado.nombre);
+			var datoRespuesta = $("<td></td>").text(item.respuesta);
+			var datoObservaciones = $("<td></td>").text(item.observaciones);
+			var datoFecha = $("<td></td>").text(devolverFecha(item.fecha));
+
+			var datoOpciones = "<td>"+
+			'<button id="btnModificarAprendiz'+contador+'" class="btn btn-table espacioModificar" data-toggle="modal" data-target="#modalModificarAprendiz"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+			"</td>";
+
+
+
+			var fila = $("<tr></tr>").append(datoNumero,datoAprendiz,datoInstructor,datoPregunta,datoPeriodo,datoEstado,datoRespuesta,datoObservaciones,datoFecha);
+
+			idCuerpoTabla.append(fila);
+
+			
+//			asignarEventoClickAprendiz(item.id,item.identificacion,item.nombreCompleto,item.ficha.id,item.detalleEstado.id,contador);
+
+			contador++;                        	
+		})
+		
+		loaderTabla(idLoaderTabla,false);
+		verificarDatosTabla(idAlertaTabla,cantidadDatos);
+
+	}).fail(function(){	
+		loaderTabla(idLoaderTabla,false);
+		agregarAlertaTabla(idAlertaTabla,"error");
+	})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -107,5 +189,9 @@ function preInsertar(idDetallePeriodo,idDetalleTipoFormacion){
 		}
 				
 	});
+}
+
+function devolverFecha(fecha){
 	
+	return new Date(fecha).toLocaleString();
 }

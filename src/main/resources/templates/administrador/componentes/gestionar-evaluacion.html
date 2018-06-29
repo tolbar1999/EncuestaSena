@@ -16,17 +16,15 @@
 		<br />
 		
 		<button id="btnRegistrarEvaluacion" class="btn btn-success" type="submit">Registrar</button>
-
 		<div id="loaderRegistroEvaluacion" class="loader-centrar-vertical"></div>
-
 	</form>
 	<!-- Cierre formulario registro evaluacion -->
 
-	<hr />
-	<br /> <br />
+	<hr/>
+	<br/><br/>
 
-	<!-- Filtro ficha-instructor -->
-	<form id="formFiltroFi">
+	<!-- Filtro evaluacion -->
+	<form id="formFiltroEvaluacion">
 		<div class="row fila-filtro">
 			<div class="col-xs-12 col-sm-12 col-lg-3 offset-sm-1 offset-lg-0">
 				<button id="btnFiltrarFi" class="btn btn-info col-xs-5 col-sm-2 col-lg-6 m-b-1" type="submit">Filtrar</button>
@@ -36,11 +34,11 @@
 			</div>
 		</div>
 	</form>
-	<!-- Cierre filtro ficha-instructor -->
+	<!-- Cierre filtro evaluacion -->
 
 	<br/>
 
-	<!-- Tabla ficha-instructor -->
+	<!-- Tabla evaluacion -->
 	<div class="table-scroll clearfix">
 		<table class="table table-hover">
 			<thead>
@@ -65,60 +63,11 @@
 			</tbody>
 
 		</table>
-		<div id="loaderTablaFi"></div>
-		<div id="alertaTablaFi" class="container"></div>
-		<input id="txtIdFichaFiViejo" value="0" type="hidden" />
-		<input id="txtIdInstructorFiViejo" value="0" type="hidden" />
+		<div id="loaderTablaEvaluacion"></div>
+		<div id="alertaTablaEvaluacion" class="container"></div>
 	</div>
-	<!-- Cierre tabla ficha-instructor -->
-	<br/>
+	<!-- Cierre tabla evaluacion -->
 
-	<!-- Modal modificar ficha-instructor -->
-	<div class="modal fade" id="modalModificarFi" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-		data-backdrop="static">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<center>
-						<h4>Modificar</h4>
-					</center>
-				</div>
-				<div class="modal-body">
-
-					<!-- Formulario modificar ficha-instructor -->
-					<form id="formModificarFi">
-						<div class="row">
-							<div class="col col-sm-12 p-b-1">
-								<label for="txtNumeroFichaFiMod">Ficha</label> 
-								<input class="form-control auto-completar-ficha" type="number" id="txtNumeroFichaFiMod" name="txtNumeroFichaFiMod" />
-							</div>
-							<div class="col col-sm-12 p-b-1">
-								<label for="txtNombreCompletoInstructorFiMod">Instructor</label>
-								<input class="form-control auto-completar-instructor" type="text" id="txtNombreCompletoInstructorFiMod" name="txtNombreCompletoInstructorFiMod" />
-							</div>
-							<div class="col col-sm-12 p-b-1">
-								<label for="selectDetalleEstadoFiMod">Estado</label>
-								<select class="form-control" id="selectDetalleEstadoFiMod" name="selectDetalleEstadoFiMod"></select>
-							</div>
-						</div>
-						
-						<br />
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-info"
-								id="btnConfirmarModificarFi">Guardar cambios</button>
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Cancelar</button>
-							<div id="loaderModificarFi" class="loader-centrar-vertical"></div>
-						</div>
-					</form>
-					<!-- Cierre formulario modificar ficha-instructor -->
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Cierre modal modificar ficha-instructor -->
 </div>
 
 

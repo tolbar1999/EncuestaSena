@@ -25,7 +25,7 @@ public class EvaluacionServiceImpl implements IEvaluacionService{
 	private EntityManager em;
 	
 	int idDetalleEstadoActivo = Detalle.idDetalleEstadoActivo;
-	int idDetalleEstadoInactivo = Detalle.idDetalleEstadoInactivo;
+	int idDetalleEstadoSinResponder = Detalle.idDetalleEstadoSinResponder;
 	
 	
 	
@@ -62,16 +62,16 @@ public class EvaluacionServiceImpl implements IEvaluacionService{
 	@Transactional
 	@Override 
 	public void preInsertar(int idDetallePeriodo, int idDetalleTipoFormacion) {
-  
+		
 		String query = 
 		"insert into evaluacion (id_aprendiz,id_instructor,id_pregunta,id_periodo, "+
 		"id_estado,respuesta,observaciones) "+
 		"select a.id as id_aprendiz, i.id as id_instructor, "+
-		"p.id as id_pregunta, dp.id as id_periodo,"+idDetalleEstadoInactivo+" as id_estado, '' as respuesta, '' as observaciones from ficha as f "+
+		"p.id as id_pregunta, dp.id as id_periodo,"+idDetalleEstadoSinResponder+" as id_estado, '' as respuesta, '' as observaciones from ficha as f "+
 		
 		"inner join aprendiz as a on a.id_ficha = f.id "+ 
 		"inner join instructor_ficha as insf on insf.id_ficha = f.id "+ 
-		"inner join instructor as i on i.id = insf.id_instructor "+ 
+		"inner join instructor as i on i.id = insf.id_instructor "+  
 		"inner join pregunta as p on p.id_tipo_formacion = "+idDetalleTipoFormacion+" "+
 		"inner join detalle as dp on dp.id = "+idDetallePeriodo+" "+
 		

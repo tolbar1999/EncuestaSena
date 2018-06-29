@@ -10,5 +10,6 @@ public interface IAprendizService extends IService<Aprendiz>{
 	
 	public List<Aprendiz> listarTodosFiltro(String identificacion, String nombreCompleto, int idFicha, int idDetalleEstado);
 	
+	public boolean existeIdentificacionAprendiz(String identificacion);
 }
 

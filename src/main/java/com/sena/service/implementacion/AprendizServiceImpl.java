@@ -147,4 +147,17 @@ public class AprendizServiceImpl implements IAprendizService{
 		
 	}
 
+	@Override
+	public boolean existeIdentificacionAprendiz(String identificacion) {
+
+		boolean devolver = false;
+		
+		if(repositorioAprendiz.existeIdentificacionAprendiz(identificacion) != null) {
+			 
+			devolver = true;
+		}
+		 
+		return devolver;
+	}
+
 }

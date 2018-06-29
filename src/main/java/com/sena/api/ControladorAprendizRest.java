@@ -69,5 +69,11 @@ public class ControladorAprendizRest {
 		return servicioAprendiz.listarTodosFiltro(identificacion,nombreCompleto,idFicha,idDetalleEstado);
 	}
 	
+	@RequestMapping(value = "/existeIdentificacionAprendiz", method = RequestMethod.GET)
+	public boolean existeIdentificacionAprendiz(@RequestParam String identificacion) {
+		 
+		return servicioAprendiz.existeIdentificacionAprendiz(identificacion);
+	}
+	
 	
 }

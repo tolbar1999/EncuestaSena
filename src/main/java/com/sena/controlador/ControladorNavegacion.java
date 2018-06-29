@@ -11,8 +11,14 @@ public class ControladorNavegacion {
 	
 	@RequestMapping(value = {"/","/*"})
 	public String navegarIndex() {
-		
+		 
 		return "aprendiz/index";
+	} 
+	
+	@RequestMapping(value = "/encuesta") 
+	public String navegarEncuesta() {
+		
+		return "aprendiz/encuesta";
 	} 
 	
 	
