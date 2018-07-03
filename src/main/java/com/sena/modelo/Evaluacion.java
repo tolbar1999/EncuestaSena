@@ -63,6 +63,10 @@ public class Evaluacion implements java.io.Serializable {
 	private Date fecha;
 
 	
+	public Evaluacion() {
+		
+		fecha = new Date();
+	}
 	
 	public Aprendiz getAprendiz() {
 		return aprendiz;

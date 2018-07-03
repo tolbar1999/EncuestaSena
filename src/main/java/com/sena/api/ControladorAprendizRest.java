@@ -75,5 +75,11 @@ public class ControladorAprendizRest {
 		return servicioAprendiz.existeIdentificacionAprendiz(identificacion);
 	}
 	
+	@RequestMapping(value = "/listarPorIdentificacion", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Aprendiz listarPorIdentificacion(@RequestParam String identificacion) {
+		
+		return servicioAprendiz.listarPorIdentificacion(identificacion);
+	}
+	
 	
 }

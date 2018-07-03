@@ -160,4 +160,10 @@ public class AprendizServiceImpl implements IAprendizService{
 		return devolver;
 	}
 
+	@Override
+	public Aprendiz listarPorIdentificacion(String identificacion) {
+
+		return repositorioAprendiz.listarPorIdentificacion(identificacion);
+	}
+
 }

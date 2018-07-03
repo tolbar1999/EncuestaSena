@@ -21,6 +21,8 @@ public class Detalle implements java.io.Serializable {
 	public static final int idDetalleEstadoActivo = 1;
 
 	public static final int idDetalleEstadoInactivo = 2;
+	 
+	public static final int idDetalleEstadoRespondido = 3;
 	
 	public static final int idDetalleEstadoSinResponder = 4;
 	

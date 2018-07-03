@@ -60,8 +60,44 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
-
 .fa.fa-edit{
 	
 	font-size: 18px;
+}
+
+.loader {
+		border: 5px solid #f3f3f3;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #ff6b15;
+        border-right: 5px solid #ff6b15;
+        border-bottom: 5px solid #ff6b15;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-centrar-vertical{
+	
+	display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;	
+}
+
+textarea.observacion{
+	
+	width: 250px;
+    height: 80px;
+    min-height: 80px;
+    max-height: 150px;
+}
+
+.display-none{
+	
+	display: none;
 }

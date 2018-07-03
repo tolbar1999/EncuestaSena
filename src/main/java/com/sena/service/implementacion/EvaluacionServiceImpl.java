@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.sena.modelo.Detalle;
 import com.sena.modelo.Evaluacion;
+import com.sena.modelo.Instructor;
+import com.sena.modelo.Pregunta;
 import com.sena.repository.IEvaluacionRepository;
 import com.sena.service.IEvaluacionService;
 
@@ -83,6 +85,34 @@ public class EvaluacionServiceImpl implements IEvaluacionService{
 					   
 		em.createNativeQuery(query).executeUpdate();  
 		 
+	}
+
+	@Override
+	public List<Instructor> obtenerInstructoresPorIdAprendiz(int idAprendiz) {
+
+		return repositorioEvaluacion.obtenerInstructoresPorIdAprendiz(idAprendiz);
+	}
+
+	@Override
+	public List<Pregunta> obtenerPreguntasPorIdAprendiz(int idAprendiz) {
+
+		return repositorioEvaluacion.obtenerPreguntasPorIdAprendiz(idAprendiz);
+	}
+
+	@Override
+	public Detalle obtenerPeriodoPorIdAprendiz(int idAprendiz) {
+
+		return repositorioEvaluacion.obtenerPeriodoPorIdAprendiz(idAprendiz);
+	}
+
+	@Transactional 
+	@Override
+	public void actualizarCustom(Evaluacion[] evaluacion) {
+
+		for (Evaluacion e : evaluacion) {
+			
+			actualizar(e);
+		}
 	}
 
 }

@@ -18,4 +18,7 @@ public interface IAprendizRepository extends JpaRepository<Aprendiz, Integer>{
 	
 	@Query("select a.id from Aprendiz a where a.identificacion = :identificacion and a.detalleEstado.id = "+idDetalleEstadoActivo)
 	public Integer existeIdentificacionAprendiz(@Param("identificacion") String identificacion); 
+	
+	@Query("from Aprendiz a where a.identificacion = :identificacion and a.detalleEstado.id = "+idDetalleEstadoActivo)
+	public Aprendiz listarPorIdentificacion(@Param("identificacion") String identificacion);
 }

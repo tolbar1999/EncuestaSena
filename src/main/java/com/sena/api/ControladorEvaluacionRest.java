@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sena.modelo.Detalle;
 import com.sena.modelo.Evaluacion;
+import com.sena.modelo.Instructor;
+import com.sena.modelo.Pregunta;
 import com.sena.service.IEvaluacionService;
 
 @RestController
@@ -60,6 +63,30 @@ public class ControladorEvaluacionRest {
 	public void preInsertar(@RequestParam int idDetallePeriodo, @RequestParam int idDetalleTipoFormacion) {
 		
 		servicioEvaluacion.preInsertar(idDetallePeriodo,idDetalleTipoFormacion);
+	}
+	
+	@RequestMapping(value = "/obtenerInstructoresPorIdAprendiz", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Instructor> obtenerInstructoresPorIdAprendiz(@RequestParam int idAprendiz){
+				
+		return servicioEvaluacion.obtenerInstructoresPorIdAprendiz(idAprendiz);	 
+	}
+	
+	@RequestMapping(value = "/obtenerPreguntasPorIdAprendiz", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Pregunta> obtenerPreguntasPorIdAprendiz(@RequestParam int idAprendiz){
+				
+		return servicioEvaluacion.obtenerPreguntasPorIdAprendiz(idAprendiz); 
+	}
+	
+	@RequestMapping(value = "/obtenerPeriodoPorIdAprendiz", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Detalle obtenerPeriodoPorIdAprendiz(@RequestParam int idAprendiz){
+		 
+		return servicioEvaluacion.obtenerPeriodoPorIdAprendiz(idAprendiz);
+	}
+	
+	@RequestMapping(value = "/actualizarCustom", method = RequestMethod.PUT)
+	public void actualizarCustom(@RequestBody Evaluacion[] evualacion) {
+		
+		servicioEvaluacion.actualizarCustom(evualacion); 
 	}
 	
 	
